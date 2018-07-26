@@ -14,7 +14,7 @@ import java.io.IOException;
  
 */
 
-public class ConsumerException extends RuntimeException
+public class EmployeeException extends RuntimeException
 {
 
 	/** @param serialVersionUID = unique identifier 
@@ -29,7 +29,7 @@ public class ConsumerException extends RuntimeException
 	 @param string 
 	 @param ioeinMessage 
 	*/
-	public ConsumerException(String string, IOException ioeinMessage)
+	public EmployeeException(String string, IOException ioeinMessage)
 	{
 		super(inMessage, inNestedException);
 		System.out.println("IO Exception - ConsumerSvcxxxImpl");
@@ -39,7 +39,7 @@ public class ConsumerException extends RuntimeException
 	 @param string 
 	 @param fnfe 
 	*/
-	public ConsumerException(String string, FileNotFoundException fnfe)
+	public EmployeeException(String string, FileNotFoundException fnfe)
 	{
 		super(inMessage, inNestedException);
 		System.out.println("File Not Found - ConsumerSvcxxxImpl");
@@ -48,7 +48,7 @@ public class ConsumerException extends RuntimeException
 	/** 
 	 @param string 
 	*/
-	public ConsumerException(String string)
+	public EmployeeException(String string)
 	{
 		super(inMessage);
 	}

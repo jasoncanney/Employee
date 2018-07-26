@@ -1,16 +1,6 @@
 package com.kenzan.employee.services.factory;
 
-import com.canopyaudience.model.domain.advertisement;
-import com.canopyaudience.model.domain.adimpression;
-import com.canopyaudience.model.domain.consumer;
-import com.canopyaudience.model.domain.consumerHistory;
-import com.canopyaudience.model.domain.coupon;
-import com.canopyaudience.model.domain.interest;
-import com.canopyaudience.model.domain.login;
-import com.canopyaudience.model.domain.myads;
-import com.canopyaudience.model.domain.preference;
-import com.canopyaudience.model.domain.provider;
-import com.canopyaudience.model.domain.recommendation;
+import com.kenzan.employee.domain.employee;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -73,17 +63,7 @@ public class HibernateFactory {
                     log.info ("got config file: "+ CONFIG_FILE_LOCATION);
                     // NOTE: buildSessionFactory() is deprecated in Hibernate 4.1.X
                     //sessionFactory = cfg.buildSessionFactory();
-                    cfg.addAnnotatedClass(adimpression.class);
-                    cfg.addAnnotatedClass(advertisement.class);
-                    cfg.addAnnotatedClass(consumerHistory.class);
-                    cfg.addAnnotatedClass(consumer.class);
-                    cfg.addAnnotatedClass(coupon.class);
-                    cfg.addAnnotatedClass(login.class);
-                    cfg.addAnnotatedClass(preference.class);
-                    cfg.addAnnotatedClass(myads.class);
-                    cfg.addAnnotatedClass(recommendation.class);
-                    cfg.addAnnotatedClass(provider.class);
-                    cfg.addAnnotatedClass(interest.class);
+                    cfg.addAnnotatedClass(employee.class);
 
                     log.info ("addAnnotatedClass: If you see this log info, make sure you updated HibernateFactory.java with appropriate annotation");
                     // cfg.addAnnotatedClass(adimpression.class);

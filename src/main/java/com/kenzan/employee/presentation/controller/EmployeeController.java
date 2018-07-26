@@ -5,17 +5,14 @@
  */
 package com.kenzan.employee.presentation.controller;
 
-import com.canopyaudience.model.business.manager.consumerManager;
-import com.canopyaudience.model.domain.consumer;
-import com.canopyaudience.model.domain.myads;
-import com.canopyaudience.model.services.exception.ConsumerException;
-import com.canopyaudience.model.services.exception.myAdsException;
+import com.kenzan.employee.business.manager.employeeManager;
+import com.kenzan.employee.domain.employee;
+import com.kenzan.employee.services.exception.EmployeeException;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,116 +25,116 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Jason
  */
 @Controller
-@RequestMapping("/consumer")
+@RequestMapping("/employee")
 public class EmployeeController {
     
-    //create an instance of the consumer business manager object
-    consumerManager instance = new consumerManager();
+    //create an instance of the employee business manager object
+    employeeManager instance = new employeeManager();
 
     @GetMapping("/list")
-	public String listCustomers(Model theModel) throws ConsumerException, ClassNotFoundException{
+	public String listCustomers(Model theModel) throws EmployeeException, ClassNotFoundException{
 		
-		// get consumers from the database through the business layer in CDE
-		// consumerManager instance = new consumerManager();
-                List<consumer> theConsumers = instance.Get();
+		// get employees from the database through the business layer in CDE
+		// employeeManager instance = new employeeManager();
+                List<employee> theEmployees = instance.Get();
                 
                 // add the customers to the model
-                theModel.addAttribute("consumers", theConsumers);
-		return "consumer_list";
+                theModel.addAttribute("employees", theEmployees);
+		return "employee_list";
 	}
 	
     @GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
-		consumer theConsumer = new consumer();
+		employee theEmployee = new employee();
 		
-		theModel.addAttribute("consumer", theConsumer);
+		theModel.addAttribute("employee", theEmployee);
 		
-		return "consumer_create";
+		return "employee_create";
 	}
 	
-    @PostMapping("/saveConsumer")
-	public String saveConsumer(@ModelAttribute("consumer") consumer theConsumer) {
+    @PostMapping("/saveEmployee")
+	public String saveEmployee(@ModelAttribute("employee") employee theEmployee) {
 		
 		// save the customer using our service
-		instance.Create(theConsumer);
+		instance.Create(theEmployee);
 		
-		return "redirect:/consumer/list";
+		return "redirect:/employee/list";
 	}
 
     @GetMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("consumerID") int theId, Model theModel) throws ConsumerException, ClassNotFoundException {
+	public String showFormForUpdate(@RequestParam("employeeID") int theId, Model theModel) throws EmployeeException, ClassNotFoundException {
 		
 		// get the customer from our service
-		consumer theConsumer = instance.GetA(theId);  //add method in service layer to get a single consumer
+		employee theEmployee = instance.GetA(theId);  //add method in service layer to get a single employee
  
                 // get the customer from our service
-		// instance.Update(theConsumer);
+		// instance.Update(theEmployee);
                 
                 // set customer as a model attribute to pre-populate the form
-		theModel.addAttribute("consumer", theConsumer);
+		theModel.addAttribute("employee", theEmployee);
                 
 		// send over to our form		
-		return "consumer_update";    
+		return "employee_update";    
         }
         
-    @PostMapping("/updateConsumer")
-	public String updateConsumer(@ModelAttribute("consumer") consumer theConsumer) {
+    @PostMapping("/updateEmployee")
+	public String updateEmployee(@ModelAttribute("employee") employee theEmployee) {
 		
 		// update the customer using our service
-                instance.Update(theConsumer);		
+                instance.Update(theEmployee);		
 		
-                return "redirect:/consumer/list";
+                return "redirect:/employee/list";
 	}
         
     @GetMapping("/delete")
-	public String deleteConsumer(@RequestParam("consumerID") int theId) {
+	public String deleteEmployee(@RequestParam("employeeID") int theId) {
 		
-                consumer c = new consumer();
+                employee c = new employee();
                 c.setConsumerID(theId);
             
 		// delete the customer
 		instance.Delete(c);  //service layer wants a domain object not just an id
 		
-		return "redirect:/consumer/list";
+		return "redirect:/employee/list";
 	}
         
         
     // REST interfaces for mobile app to create new login and check login for existing users    
         
      /**
-    @RequestMapping(value = "/{consumerId}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
+    @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
     @ResponseBody
-    public List<myads> getUserID(@PathVariable("consumerId") int consumerID) throws myAdsException, ClassNotFoundException{
+    public List<myads> getUserID(@PathVariable("employeeId") int employeeID) throws myAdsException, ClassNotFoundException{
     
-        theAds = instance.GetA(consumerID);
+        theAds = instance.GetA(employeeID);
         
         return theAds;
     
     }*/
    
     /**
-     * REST Interface to pull a list of all consumers (Not needed to expose to Mobile app)
+     * REST Interface to pull a list of all employees (Not needed to expose to Mobile app)
      * @return
-     * @throws ConsumerException
+     * @throws EmployeeException
      * @throws ClassNotFoundException 
      */
     @RequestMapping(value = "/listall", method = RequestMethod.GET, headers = "Accept=application/json", produces = {"application/json"})
     @ResponseBody
-    public List<consumer> getConsumerList() throws ConsumerException, ClassNotFoundException {
+    public List<employee> getEmployeeList() throws EmployeeException, ClassNotFoundException {
         
-        List<consumer> consumers = instance.Get();
-        return consumers;    
+        List<employee> employees = instance.Get();
+        return employees;    
     }
     
-    /* Use Case to put new consumer into Matterhorn
+    /* Use Case to put new employee into Matterhorn
        
     */
     @RequestMapping(value = "/post", method = RequestMethod.POST, headers = "Accept=application/json", produces = {"application/json"}, consumes = {"application/json"})
     @ResponseBody
-    public boolean putnewConsumer(@RequestBody consumer consumer) {
-        return instance.Create(consumer);
+    public boolean putnewEmployee(@RequestBody employee employee) {
+        return instance.Create(employee);
     
     }
     

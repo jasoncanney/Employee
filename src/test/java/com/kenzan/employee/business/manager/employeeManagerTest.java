@@ -5,7 +5,7 @@
  */
 package com.kenzan.employee.business.manager;
 
-import com.canopyaudience.model.domain.consumer;
+import com.kenzan.employee.domain.employee;
 import junit.framework.TestCase;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -23,18 +23,18 @@ public class employeeManagerTest extends TestCase{
     public employeeManagerTest() {
     }
     
-    consumer consumer1;
-    consumer consumer2;
-    consumer consumer3;
+    employee employee1;
+    employee employee2;
+    employee employee3;
 
     @Before	
 	protected void setUp() throws Exception {
 		
 		super.setUp();
                 // Factory factory = Factory.getInstance();
-		consumer1 = new consumer (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password1");                
-                consumer2 = new consumer (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password2");             
-                // consumer3 = new consumer (86731, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password3");              
+		employee1 = new employee (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password1");                
+                employee2 = new employee (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password2");             
+                // employee3 = new employee (86731, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password3");              
 
         }
         /*
@@ -43,49 +43,49 @@ public class employeeManagerTest extends TestCase{
 	 */
         static Logger log = Logger.getLogger(employeeManagerTest.class);
     /**
-     * Test of Create method, of class consumerManager.
+     * Test of Create method, of class employeeManager.
      */
     @Test
     public void test1Create() {
-        log.info ("consumerManagerTest - test1Create");
-        consumerManager instance = new consumerManager();
+        log.info ("employeeManagerTest - test1Create");
+        employeeManager instance = new employeeManager();
         boolean expResult = true;
-        boolean result = instance.Create(consumer1);
+        boolean result = instance.Create(employee1);
         assertEquals(expResult, result);   
     }
 
     /**
-     * Test of Get method, of class consumerManager.
+     * Test of Get method, of class employeeManager.
      */
     @Test
     public void test2GetA() throws Exception {
-        log.info ("consumerManagerTest - test2GetA");
-        consumerManager instance = new consumerManager();
-        consumer c = instance.GetA(consumer1.getConsumerID());
-        assertEquals(c.getConsumerID(), consumer1.getConsumerID());   
+        log.info ("employeeManagerTest - test2GetA");
+        employeeManager instance = new employeeManager();
+        employee c = instance.GetA(employee1.getConsumerID());
+        assertEquals(c.getConsumerID(), employee1.getConsumerID());   
     }
     
     /**
-     * Test of Update method, of class consumerManager.
+     * Test of Update method, of class employeeManager.
      */
     @Test
     public void test3Update() {
-         log.info ("consumerManagerTest - test3Update");
-        consumerManager instance = new consumerManager();
+         log.info ("employeeManagerTest - test3Update");
+        employeeManager instance = new employeeManager();
         boolean expResult = true;
-        boolean result = instance.Update(consumer2);  // adimpression2 is a pre-updated adimpression object for adimpression1
+        boolean result = instance.Update(employee2);  // adimpression2 is a pre-updated adimpression object for adimpression1
         assertEquals(expResult, result);        
     }
 
     /**
-     * Test of Delete method, of class consumerManager.
+     * Test of Delete method, of class employeeManager.
      */
     @Test
     public void test4Delete() {
-        log.info ("consumerManagerTest - test4Delete");
-        consumerManager instance = new consumerManager();
+        log.info ("employeeManagerTest - test4Delete");
+        employeeManager instance = new employeeManager();
         boolean expResult = true;
-        boolean result = instance.Delete(consumer1);
+        boolean result = instance.Delete(employee1);
         assertEquals(expResult, result);  
     }
     

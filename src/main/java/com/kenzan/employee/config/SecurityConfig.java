@@ -1,6 +1,6 @@
 package com.kenzan.employee.config;
 
-import com.canopyaudience.model.services.factory.HibernateFactory;
+import com.kenzan.employee.services.factory.HibernateFactory;
 import javax.sql.DataSource;
 import org.hibernate.Session;
 
@@ -34,13 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			// .antMatchers("/").hasRole("EMPLOYEE")
-			// .antMatchers("/leaders/**").hasRole("MANAGER")
-			// .antMatchers("/systems/**").hasRole("ADMIN")
-                        .antMatchers("/myads/**").permitAll()
-                        .antMatchers("/consumer/**").permitAll()
-                        // .antMatchers("/preference/**").permitAll()
-                        .antMatchers("/adimpression/**").permitAll()
+                        .antMatchers("/employee/**").permitAll()
                         .and()
                         
                         .authorizeRequests()

@@ -5,9 +5,9 @@
  */
 package com.kenzan.employee.services.employee;
 
-import com.canopyaudience.model.domain.consumer;
-import com.canopyaudience.model.services.exception.ConsumerException;
-import com.canopyaudience.model.services.factory.HibernateFactory;
+import com.kenzan.employee.domain.employee;
+import com.kenzan.employee.services.exception.EmployeeException;
+import com.kenzan.employee.services.factory.HibernateFactory;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -18,29 +18,28 @@ import org.hibernate.Transaction;
  * @author Jason
  */
 // @Repository
-public class EmployeeSvcHibernateImpl implements IConsumerSvc
+public class EmployeeSvcHibernateImpl implements IEmployeeSvc
 {
 	/*
 	* Category set in config/log4j.properties as
 	* log4j.category.com.classexercise=DEBUG, A1
 	*/
-        static Logger log = Logger.getLogger("ConsumerSvcHibernateImpl.class");
+        static Logger log = Logger.getLogger("EmployeeSvcHibernateImpl.class");
 	
  /**
-  * Set adimpression data received from GUI and put in database
+  * Set employee data received from GUI and put in database
   * @return boolean
   */
  
-        @Override
-  public boolean storeConsumer(consumer consumer)
+  public boolean storeEmployee(employee employee)
         {
           
             boolean status = true;
             log.info("-------------------------------");
             log.info("Using Hibernate Implementation");
             log.info("-------------------------------");
-            log.info ("storeConsumer - ConsumerSvcHibernateImpl.java");
-            consumer appdb  = consumer;
+            log.info ("storeEmployee - EmployeeSvcHibernateImpl.java");
+            employee appdb  = employee;
             Transaction tx = null;
             Session session = fetchSession();
             log.info ("fetched session");
@@ -51,7 +50,7 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
                 log.info ("beginTransaction");
                 session.save(appdb);
                 log.info ("session.saved");
-                log.info("consumer saved. Check database for data!");
+                log.info("employee saved. Check database for data!");
                 tx.commit();
             }
             catch(Exception e)
@@ -72,16 +71,15 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
      * @return <list> of adimpression
      * @throws java.lang.ClassNotFoundException
      */
-     @Override
-    public List<consumer> getConsumer() throws ConsumerException, ClassNotFoundException {
+    public List<employee> getEmployee() throws EmployeeException, ClassNotFoundException {
         
         {
             log.info("-------------------------------");
             log.info("Using Hibernate Implementation");
             log.info("-------------------------------");
-            log.info ("getConsumer - ConsumerSvcHibernateImpl.java");
+            log.info ("getEmployee - EmployeeSvcHibernateImpl.java");
             Transaction tx = null;
-            List<consumer> theApplications = null;
+            List<employee> theApplications = null;
             Session session = fetchSession();
             log.info ("fetched session");
             
@@ -89,9 +87,9 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
             {
                 tx = session.beginTransaction();
                 log.info ("beginTransaction");
-                theApplications = session.createQuery("from consumer").getResultList();
+                theApplications = session.createQuery("from employee").getResultList();
                 log.info ("session.createQuery passed");
-                log.info("consumer queried and put into List.");
+                log.info("employee queried and put into List.");
                 tx.commit();
             }
             catch(Exception e)
@@ -112,19 +110,19 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
     /**
      * Pulls data from database through hibernate interface
      * @param id
-     * @return consumer object
+     * @return employee object
      * @throws java.lang.ClassNotFoundException
      */
-    public consumer getAConsumer(int id) throws ConsumerException, ClassNotFoundException {
+    public employee getAEmployee(int id) throws EmployeeException, ClassNotFoundException {
         
         {
             
             int i = id;
-            consumer c = new consumer();
+            employee c = new employee();
             log.info("-------------------------------");
             log.info("Using Hibernate Implementation");
             log.info("-------------------------------");
-            log.info ("getConsumer - ConsumerSvcHibernateImpl.java");
+            log.info ("getEmployee - EmployeeSvcHibernateImpl.java");
             Transaction tx = null;
             Session session = fetchSession();
             log.info ("fetched session");
@@ -133,7 +131,7 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
             {
                 tx = session.beginTransaction();
                 log.info ("beginTransaction");
-                c = session.get(consumer.class, i);
+                c = session.get(employee.class, i);
                 tx.commit();
             }
             catch(Exception e)
@@ -151,25 +149,24 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
     }
   
     /**
-  * Updates consumerHistory object received from GUI and put in database
+  * Updates employeeHistory object received from GUI and put in database
   * @return boolean
   */
-  @Override
-  public boolean updateConsumer(consumer consumer)
+  public boolean updateEmployee(employee employee)
         {
           boolean status = true;
             log.info("-------------------------------");
             log.info("Using Hibernate Implementation");
             log.info("-------------------------------");
 
-            log.info ("updateConsumer - ConsumerSvcHibernateImpl.java");
+            log.info ("updateEmployee - EmployeeSvcHibernateImpl.java");
  
             // updateApplication takes in an application object
             // this object includes the updates received and that need to be stored in the db
-            consumer appdb  = consumer;
+            employee appdb  = employee;
             // create a new application object.  This is where the current application object gets stored and 
             // will be used to make updates and store back in the db
-            consumer appnew = null;
+            employee appnew = null;
             Transaction tx = null;
             Session session = fetchSession();
             log.info ("fetched session");
@@ -177,10 +174,10 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
             try 
             {
                 tx = session.beginTransaction();
-                log.info ("beginTransaction, Getting consumer with consumerid:" + appdb.getConsumerID());   
+                log.info ("beginTransaction, Getting employee with employeeid:" + appdb.getConsumerID());   
                 // retrieve the current application object from the database
-                appnew = session.get(consumer.class, appdb.getConsumerID());
-                // update all fields in the current advertisement object except the PK of consumerID  
+                appnew = session.get(employee.class, appdb.getConsumerID());
+                // update all fields in the current advertisement object except the PK of employeeID  
                 appnew.setConsumerFirstName(appdb.getConsumerFirstName());
                 appnew.setConsumerMiddleInitial(appdb.getConsumerMiddleInitial());
                 appnew.setConsumerLastName(appdb.getConsumerLastName());
@@ -192,10 +189,10 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
                 appnew.setConsumerZip(appdb.getConsumerZip());
                 appnew.setConsumerSocEmail(appdb.getConsumerSocEmail());
                 appnew.setConsumerPWD(appdb.getConsumerPWD());
-		System.out.println("Updating consumer...");
+		System.out.println("Updating employee...");
                 // application object is updated in the db based on the Primary Key that was unchanged
                 session.update(appnew);
-                log.info("consumer updated. Check database for data!");
+                log.info("employee updated. Check database for data!");
                 tx.commit();
             }
             catch(Exception e)
@@ -212,18 +209,17 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
        }  
      /**
      * Deletes data from database through hibernate interface
-     * @param consumer
+     * @param employee
      * @return boolean of applications
      */
-    @Override
-    public boolean deleteConsumer(consumer consumer)
+    public boolean deleteEmployee(employee employee)
         {
             boolean status = true;
             log.info("-------------------------------");
             log.info("Using Hibernate Implementation");
             log.info("-------------------------------");
-            log.info ("deleteConsumer - ConsumerSvcHibernateImpl.java");
-            consumer appdb  = consumer;
+            log.info ("deleteEmployee - EmployeeSvcHibernateImpl.java");
+            employee appdb  = employee;
             Transaction tx = null;
             Session session = fetchSession();
             log.info ("fetched session");
@@ -233,8 +229,8 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
                 tx = session.beginTransaction();
                 log.info ("beginTransaction");
                 session.delete(appdb);
-                log.info ("session.delete(consumer passed in)");
-                log.info("consumer deleted. Check database for data not there!");
+                log.info ("session.delete(employee passed in)");
+                log.info("employee deleted. Check database for data not there!");
                 tx.commit();
             }
             catch(Exception e)
@@ -265,4 +261,5 @@ public class EmployeeSvcHibernateImpl implements IConsumerSvc
 	    
 	} //end fetchConnection
 
+   
 }// end class AdImpressionSvcHibernateImpl

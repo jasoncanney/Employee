@@ -1,12 +1,12 @@
 package com.kenzan.employee.services.employee;
 
-import com.canopyaudience.model.domain.*;
-import com.canopyaudience.model.services.*;
-import com.canopyaudience.model.services.exception.ConsumerException;
+import com.kenzan.employee.domain.employee;
+import com.kenzan.employee.services.IService;
+import com.kenzan.employee.services.exception.EmployeeException;
 import java.util.List;
 
 /** 
- This interface defines methods for persisting of consumer.java
+ This interface defines methods for persisting of employee.java
  to and from a file system
  @author Jason L. Canney
   
@@ -15,52 +15,52 @@ public interface IEmployeeSvc extends IService
 {
 
 	/** 
-	 Persists a consumer
-	 The storeConsumer takes in a consumer object as input and will pass it to the ConsumerSvcImpl 
-	 @param consumer The application to be persisted 
+	 Persists a employee
+	 The storeEmployee takes in a employee object as input and will pass it to the EmployeeSvcImpl 
+	 @param employee The application to be persisted 
 	 @return  void 
-	 @exception ConsumerException  
+	 @exception EmployeeException  
 	*/
 
-	public boolean storeConsumer(consumer consumer);
+	public boolean storeEmployee(employee employee);
         
 	/** 
-	 Retrieves a single consumer
-	 The getConsumer takes an ID as an argument and retrieves it through the ConsumerSvcImpl class 
+	 Retrieves a single employee
+	 The getEmployee takes an ID as an argument and retrieves it through the EmployeeSvcImpl class 
 	 @return  The collection 
-	 @exception ConsumerException 
+	 @exception EmployeeException 
 	 @exception ClassNotFoundException  
 	*/
 
-	public List<consumer> getConsumer() throws ConsumerException, ClassNotFoundException;
+	public List<employee> getEmployee() throws EmployeeException, ClassNotFoundException;
 
 	/**
          * Pulls data from database through hibernate interface
          * @param id
-         * @return consumer object
+         * @return employee object
          * @throws java.lang.ClassNotFoundException
          */
-        public consumer getAConsumer(int id) throws ConsumerException, ClassNotFoundException;
+        public employee getAEmployee(int id) throws EmployeeException, ClassNotFoundException;
        
         /** 
-	 Updates a consumer
-	 The updateConsumer takes in a consumer object as input and will pass it to the ConsumerSvcImpl 
-	 @param consumer The consumer to be updated
+	 Updates a employee
+	 The updateEmployee takes in a employee object as input and will pass it to the EmployeeSvcImpl 
+	 @param employee The employee to be updated
 	 @return  void 
-	 @exception ConsumerException  
+	 @exception EmployeeException  
 	*/
 
 
-	public boolean updateConsumer(consumer consumer);
+	public boolean updateEmployee(employee employee);
 
 	/** 
-	 delete a consumer
-	 The deleteConsumer takes in a consumer object as input and will pass it to the ConsumerSvcImpl 
-	 @param consumer The consumer to be updated
+	 delete a employee
+	 The deleteEmployee takes in a employee object as input and will pass it to the EmployeeSvcImpl 
+	 @param employee The employee to be updated
 	 @return  void 
-	 @exception ConsumerException  
+	 @exception EmployeeException  
 	*/
 
-	public boolean deleteConsumer(consumer consumer);
+	public boolean deleteEmployee(employee employee);
 
 }

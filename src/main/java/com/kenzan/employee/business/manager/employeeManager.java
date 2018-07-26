@@ -1,8 +1,9 @@
 package com.kenzan.employee.business.manager;
 
-import com.canopyaudience.model.services.consumerservice.*;
-import com.canopyaudience.model.domain.*;
-import com.canopyaudience.model.services.exception.ConsumerException;
+import com.kenzan.employee.domain.employee;
+import com.kenzan.employee.services.employee.IEmployeeSvc;
+import com.kenzan.employee.services.employee.ManagerSuperType;
+import com.kenzan.employee.services.exception.EmployeeException;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -14,91 +15,91 @@ public class employeeManager extends ManagerSuperType
         // create reference to the actual config file
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml"});   
         // leverage spring to get the config information for the service
-        IConsumerSvc consSvc = (IConsumerSvc)context.getBean("IConsumerSvc");
+        IEmployeeSvc consSvc = (IEmployeeSvc)context.getBean("IEmployeeSvc");
         
         /*
 	* Category set in config/log4j.properties as
 	* log4j.category.com.classexercise=DEBUG, A1
 	*/
-        static Logger log = Logger.getLogger("consumerManager.class");
+        static Logger log = Logger.getLogger("employeeManager.class");
         
 	/** 
-	 Business use case for "store consumer"
+	 Business use case for "store employee"
 	 
 	 @param c
             * @return 
 	*/
-	public final boolean Create(consumer c)
+	public final boolean Create(employee c)
 	{
 		// Factory factory = Factory.getInstance();
-		// IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-		consSvc.storeConsumer(c);
+		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+		consSvc.storeEmployee(c);
 		return true;
 	}
 
 	/** 
-	 Business use case for "retrieve consumer list"
+	 Business use case for "retrieve employee list"
 	 
-	 @return Set<consumer>
+	 @return Set<employee>
         * @throws java.lang.ClassNotFoundException
 	*/
-	public final List<consumer> Get() throws ConsumerException, ClassNotFoundException
+	public final List<employee> Get() throws EmployeeException, ClassNotFoundException
 	{
 		// Factory factory = Factory.getInstance();
-      		// IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-                log.info ("Next: return consSvc.getConsumer");
-		return consSvc.getConsumer();
+      		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+                log.info ("Next: return consSvc.getEmployee");
+		return consSvc.getEmployee();
 	}
         
 	/** 
-	 Business use case for "retrieve consumerID"
+	 Business use case for "retrieve employeeID"
 	 
 	 @return 
 	*//**
-	public final int whatIsConsumerID(String socemail)
+	public final int whatIsEmployeeID(String socemail)
 	{
 		Factory factory = Factory.GetInstance();
-		IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-		return consSvc.whatIsConsumerID(socemail);
+		IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+		return consSvc.whatIsEmployeeID(socemail);
 	}
 */
 	/** 
-	 Business use case for "retrieve single consumer"
+	 Business use case for "retrieve single employee"
          * @param id
-	 @return consumer
+	 @return employee
         * @throws java.lang.ClassNotFoundException
 	*/
-	public final consumer GetA(int id) throws ConsumerException, ClassNotFoundException
+	public final employee GetA(int id) throws EmployeeException, ClassNotFoundException
 	{
 		// Factory factory = Factory.getInstance();
-		// IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-		return consSvc.getAConsumer(id);
+		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+		return consSvc.getAEmployee(id);
 	}
         
 	/** 
-	 Business use case for "update consumer"
+	 Business use case for "update employee"
 	 S
 	 @param c
 	*/
-	public final boolean Update(consumer c)
+	public final boolean Update(employee c)
 	{
 		// Factory factory = Factory.getInstance();
-		// IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-		consSvc.updateConsumer(c);
+		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+		consSvc.updateEmployee(c);
 		return true;
 
 	}
 
 	/** 
-	 Business use case for "delete consumer"
+	 Business use case for "delete employee"
 	 
 	 @param c
 	*/
-	public final boolean Delete(consumer c)
+	public final boolean Delete(employee c)
 	{
 		// Factory factory = Factory.getInstance();
-		// IConsumerSvc consSvc = (IConsumerSvc)factory.getService("IConsumerSvc");
-		consSvc.deleteConsumer(c);
+		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+		consSvc.deleteEmployee(c);
 		return true;
 	}
 

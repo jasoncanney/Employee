@@ -1,10 +1,10 @@
 package com.kenzan.employee.services.factory;
 
+import com.kenzan.employee.services.IService;
+import com.kenzan.employee.services.exception.ServiceLoadException;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 
-import com.canopyaudience.model.services.exception.ServiceLoadException;
-import com.canopyaudience.model.services.IService;
 // uncomment to use SAXPropertyManager instead of code in getImplName which uses Tomcat web.xml 
 //import com.canopyaudience.model.services.manager.SAXPropertyManager;
 
@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
  * This factory class takes a string name of a service, creates a class equivalent of it
  * and returns it in this classes interface form.
  * 
- * All service classes (com.canopyaudience.model.services.*) implement IService interface.
+ * All service classes (com.kenzan.employee.services.*) implement IService interface.
  *     
  * The getService method does not return IApplicationSvc or IReleaseSvc but returns class of type IService
  * which continues the decoupling theme of MVC so the calling classes don't deal with a concrete implementation

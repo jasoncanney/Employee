@@ -1,13 +1,11 @@
 
-
-import com.canopyaudience.*;
+import com.kenzan.employee.business.manager.AllBusinessTests;
+import com.kenzan.employee.domain.AllDomainTests;
+import com.kenzan.employee.services.AllServicesTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.canopyaudience.model.business.AllBusinessTests;
-import com.canopyaudience.model.domain.AllDomainTests;
-import com.canopyaudience.model.services.AllServicesTests;
 
 /** 
  * Runs all test suites in the domain, services and business layers
