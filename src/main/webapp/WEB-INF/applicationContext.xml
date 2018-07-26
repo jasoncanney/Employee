@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+        <!-- Add support for component scanning -->
+        <context:component-scan base-package="com.canopyaudience"/>
+        <context:component-scan base-package="com.canopyaudience.model.business.manager"/>
+
+            <!--bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+
+    <bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    p:driverClassName="${jdbc.driverClassName}"
+    p:url="${jdbc.url}"
+    p:username="${jdbc.username}"
+    p:password="${jdbc.password}" /-->
+
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+    
+        <!-- These are the beans utilized by the recommender by the business layer classes for each -->
+    
+        <bean id="IAdImpressionSvc" class="com.canopyaudience.model.services.adimpression.AdImpressionSvcHibernateImpl"></bean>       
+        <bean id="IAdSvc" class="com.canopyaudience.model.services.adservice.AdSvcHibernateImpl"></bean> 
+        <bean id="IConsumerHistorySvc" class="com.canopyaudience.model.services.consumerhistoryservice.ConsumerHistorySvcHibernateImpl"></bean> 
+        <bean id="IConsumerSvc" class="com.canopyaudience.model.services.consumerservice.ConsumerSvcHibernateImpl"></bean>
+        <bean id="ICouponSvc" class="com.canopyaudience.model.services.couponservice.CouponSvcHibernateImpl"></bean> 
+        <bean id="ILoginSvc" class="com.canopyaudience.model.services.loginservice.LoginSvcHibernateImpl"></bean> 
+        <bean id="IPreferenceSvc" class="com.canopyaudience.model.services.preferenceservice.PreferenceSvcHibernateImpl"></bean> 
+        <bean id="ImyAdSvc" class="com.canopyaudience.model.services.myads.myAdSvcHibernateImpl"></bean> 
+        <bean id="IRecoSvc" class="com.canopyaudience.model.services.recoservice.RecoSvcHibernateImpl"></bean>
+        
+        <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+            <property name="url" value="jdbc:mysql://localhost:3306/genadx?useSSL=false" />
+            <property name="username" value="caudience" />
+            <property name="password" value="Jackrabb1t!!" />
+        </bean>
+
+        <!-- Add support for conversion, formatting and validation support -->
+	<mvc:annotation-driven/>
+
+        <!-- Define Spring MVC view resolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+        <!-- Add support for reading web resources: css, images, js, etc ... -->
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+
+</beans>

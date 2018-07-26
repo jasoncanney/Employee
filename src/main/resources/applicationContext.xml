@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+        <!-- These are the beans utilized by the recommender by the business layer classes for each -->
+    
+        <bean id="IAdImpressionSvc" class="com.canopyaudience.model.services.adimpression.AdImpressionSvcHibernateImpl"></bean>  
+        <bean id="IAdSvc" class="com.canopyaudience.model.services.adservice.AdSvcHibernateImpl"></bean>
+        <bean id="IConsumerHistorySvc" class="com.canopyaudience.model.services.consumerhistoryservice.ConsumerHistorySvcHibernateImpl"></bean>
+        <bean id="IConsumerSvc" class="com.canopyaudience.model.services.consumerservice.ConsumerSvcHibernateImpl"></bean>
+        <bean id="ICouponSvc" class="com.canopyaudience.model.services.couponservice.CouponSvcHibernateImpl"></bean>
+        <bean id="ILoginSvc" class="com.canopyaudience.model.services.loginservice.LoginSvcHibernateImpl"></bean>
+        <bean id="IPreferenceSvc" class="com.canopyaudience.model.services.preferenceservice.PreferenceSvcHibernateImpl"></bean>
+        <bean id="ImyAdSvc" class="com.canopyaudience.model.services.myads.myAdSvcHibernateImpl"></bean> 
+        <bean id="IRecoSvc" class="com.canopyaudience.model.services.recoservice.RecoSvcHibernateImpl"></bean>
+        <bean id="IProviderSvc" class="com.canopyaudience.model.services.providerservice.ProviderSvcHibernateImpl"></bean>
+        <bean id="IIntSvc" class="com.canopyaudience.model.services.interestservice.IntSvcHibernateImpl"></bean>
+       
+</beans>
