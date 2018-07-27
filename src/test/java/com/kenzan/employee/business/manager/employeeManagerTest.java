@@ -43,7 +43,7 @@ public class employeeManagerTest extends TestCase{
 	 */
         static Logger log = Logger.getLogger(employeeManagerTest.class);
     /**
-     * Test of Create method, of class employeeManager.
+     * Test of Create method, of class employeeManager.  *****
      */
     @Test
     public void test1Create() {
