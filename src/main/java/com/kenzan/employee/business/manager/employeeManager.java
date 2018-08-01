@@ -1,15 +1,16 @@
 package com.kenzan.employee.business.manager;
 
 import com.kenzan.employee.domain.employee;
-import com.kenzan.employee.services.employee.IEmployeeSvc;
+import com.kenzan.employee.services.employee.*;
 import com.kenzan.employee.services.employee.ManagerSuperType;
 import com.kenzan.employee.services.exception.EmployeeException;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
-// @Service
+//@Service
 public class employeeManager extends ManagerSuperType
 {
         // create reference to the actual config file
@@ -21,8 +22,9 @@ public class employeeManager extends ManagerSuperType
 	* Category set in config/log4j.properties as
 	* log4j.category.com.classexercise=DEBUG, A1
 	*/
-        static Logger log = Logger.getLogger("employeeManager.class");
+        static Logger log = Logger.getLogger("employeeManager.clss");
         
+
 	/** 
 	 Business use case for "store employee"
 	 
@@ -31,10 +33,9 @@ public class employeeManager extends ManagerSuperType
 	*/
 	public final boolean Create(employee c)
 	{
-		// Factory factory = Factory.getInstance();
-		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
-		consSvc.storeEmployee(c);
-		return true;
+            log.info ("employeeManager - Create");
+            consSvc.storeEmployee(c);
+            return true;
 	}
 
 	/** 
@@ -45,8 +46,7 @@ public class employeeManager extends ManagerSuperType
 	*/
 	public final List<employee> Get() throws EmployeeException, ClassNotFoundException
 	{
-		// Factory factory = Factory.getInstance();
-      		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+                log.info ("employeeManager - Get");
                 log.info ("Next: return consSvc.getEmployee");
 		return consSvc.getEmployee();
 	}
@@ -71,9 +71,8 @@ public class employeeManager extends ManagerSuperType
 	*/
 	public final employee GetA(int id) throws EmployeeException, ClassNotFoundException
 	{
-		// Factory factory = Factory.getInstance();
-		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
-		return consSvc.getAEmployee(id);
+            log.info ("employeeManager - GetA");
+            return consSvc.getAEmployee(id);
 	}
         
 	/** 
@@ -83,11 +82,9 @@ public class employeeManager extends ManagerSuperType
 	*/
 	public final boolean Update(employee c)
 	{
-		// Factory factory = Factory.getInstance();
-		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
+                log.info ("employeeManager - Update");
 		consSvc.updateEmployee(c);
 		return true;
-
 	}
 
 	/** 
@@ -97,9 +94,8 @@ public class employeeManager extends ManagerSuperType
 	*/
 	public final boolean Delete(employee c)
 	{
-		// Factory factory = Factory.getInstance();
-		// IEmployeeSvc consSvc = (IEmployeeSvc)factory.getService("IEmployeeSvc");
-		consSvc.deleteEmployee(c);
+		log.info ("employeeManager - Delete");
+                consSvc.deleteEmployee(c);
 		return true;
 	}
 
