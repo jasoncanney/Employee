@@ -14,7 +14,7 @@ import javax.persistence.Table;
  by the CDE
 */
 @Entity
-@Table(name = "employee")
+@Table(name = "consumer")
 public class employee implements Serializable
 {
 
