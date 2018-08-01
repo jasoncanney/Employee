@@ -22,7 +22,7 @@
         <!-- These are the beans utilized by the recommender by the business layer classes for each -->
     
         
-        <bean id="IEmployeeSvc" class="com.kenzan.employee.services.EmployeeSvcHibernateImpl"></bean>
+        <bean id="IEmployeeSvc" class="com.kenzan.employee.services.employee.EmployeeSvcHibernateImpl"></bean>
         
         <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
