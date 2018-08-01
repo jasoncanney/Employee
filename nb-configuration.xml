@@ -13,7 +13,6 @@ Without this configuration present, some functionality in the IDE may be limited
         </config-files>
         <config-file-groups/>
     </spring-data>
-    <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
     <properties xmlns="http://www.netbeans.org/ns/maven-properties-data/1">
         <!--
 Properties that influence various parts of the IDE, especially code formatting and the like. 
@@ -31,4 +30,5 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-css-prep.less_2e_compiler_2e_options/>
         <org-netbeans-modules-css-prep.sass_2e_mappings>/scss:/css</org-netbeans-modules-css-prep.sass_2e_mappings>
     </properties>
+    <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
 </project-shared-configuration>
