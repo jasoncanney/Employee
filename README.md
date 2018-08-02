@@ -1,6 +1,6 @@
 # Employee
 
-Project Overview
+## Project Overview
 
 Create a web application that exposes REST operations for employees.
 
@@ -8,9 +8,9 @@ Implemented n-tier design patterns (domain-services-business-presentation)
 Implemented test suite testing lower layers, specifically testing DB connections
 Restful interfaces execute all required use cases
 
-Requirements
+## Requirements
 
-The API should be able to:
+### The API should be able to:
 
 
 * Get employees by an ID
@@ -27,7 +27,7 @@ The API should be able to:
 An employee is made up of the following data:
 
 
-Employee spec
+### Employee spec
 
 
 ID - Unique identifier for an employee
@@ -46,7 +46,7 @@ DateOfEmployment - Employee start date
 Status - ACTIVE or INACTIVE
 
 
-Startup
+### Startup
 
 -------
 
@@ -66,7 +66,7 @@ ACTIVE vs INACTIVE employees
 
 All data should be persisted into either memory, or externally. Please include instructions on how to run and interact with the web server.
 
-Build Environment
+## Build Environment
 
 Netbeans 8.2
 Mysql - SQL DB Create script included in github project under src/main/resources
