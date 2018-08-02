@@ -8,6 +8,8 @@ Implemented n-tier design patterns (domain-services-business-presentation)
 Implemented test suite testing lower layers, specifically testing DB connections
 Restful interfaces execute all required use cases
 
+Solution leverages Spring MVC and Security.  
+
 ## Requirements
 
 ### The API should be able to:
