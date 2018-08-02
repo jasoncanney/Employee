@@ -27,7 +27,12 @@ public class employeeManagerTest extends TestCase{
     employee employee2;
     employee employee3;
 
+    /**
+     *
+     * @throws Exception
+     */
     @Before	
+    @Override
 	protected void setUp() throws Exception {
 		
 		super.setUp();
@@ -56,6 +61,7 @@ public class employeeManagerTest extends TestCase{
 
     /**
      * Test of Get method, of class employeeManager.
+     * @throws java.lang.Exception
      */
     @Test
     public void test2GetA() throws Exception {
