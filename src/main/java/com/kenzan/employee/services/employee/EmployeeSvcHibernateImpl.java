@@ -174,21 +174,16 @@ public class EmployeeSvcHibernateImpl implements IEmployeeSvc
             try 
             {
                 tx = session.beginTransaction();
-                log.info ("beginTransaction, Getting employee with employeeid:" + appdb.getConsumerID());   
+                log.info ("beginTransaction, Getting employee with employeeid:" + appdb.getEmployeeID());   
                 // retrieve the current application object from the database
-                appnew = session.get(employee.class, appdb.getConsumerID());
+                appnew = session.get(employee.class, appdb.getEmployeeID());
                 // update all fields in the current advertisement object except the PK of employeeID  
-                appnew.setConsumerFirstName(appdb.getConsumerFirstName());
-                appnew.setConsumerMiddleInitial(appdb.getConsumerMiddleInitial());
-                appnew.setConsumerLastName(appdb.getConsumerLastName());
-                appnew.setConsumerEmail(appdb.getConsumerEmail());
-                appnew.setConsumerPhone(appdb.getConsumerPhone());
-                appnew.setConsumerAddress(appdb.getConsumerAddress());
-                appnew.setConsumerCity(appdb.getConsumerCity());
-                appnew.setConsumerState(appdb.getConsumerState());
-                appnew.setConsumerZip(appdb.getConsumerZip());
-                appnew.setConsumerSocEmail(appdb.getConsumerSocEmail());
-                appnew.setConsumerPWD(appdb.getConsumerPWD());
+                appnew.setEmployeeFirstName(appdb.getEmployeeFirstName());
+                appnew.setEmployeeMiddleInitial(appdb.getEmployeeMiddleInitial());
+                appnew.setEmployeeLastName(appdb.getEmployeeLastName());
+                appnew.setDob(appdb.getDob());
+                appnew.setDoe(appdb.getDoe());
+                appnew.setStatus(appdb.getStatus());
 		System.out.println("Updating employee...");
                 // application object is updated in the db based on the Primary Key that was unchanged
                 session.update(appnew);

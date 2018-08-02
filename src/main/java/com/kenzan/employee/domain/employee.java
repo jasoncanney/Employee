@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 /** 
  @author Jason Canney
- Domain Consumer class 
- The Consumer class defines the domain object for consumer data that will
+ Domain employee class 
+ The Employee class defines the domain object for employee data that will
  be received by the CDE from the mobile app and then stored in a data store
  by the CDE
 */
 @Entity
-@Table(name = "consumer")
+@Table(name = "employee")
 public class employee implements Serializable
 {
 
@@ -28,265 +28,139 @@ public class employee implements Serializable
 
         @Id
         // @GeneratedValue(strategy=GenerationType.IDENTITY)
-        @Column(name = "ConsumerID")
+        @Column(name = "EmployeeID")
 	/** 
-	 Consumers ID
+	 Employees ID
 	*/
-	private int consumerID;
+	private int employeeID;
 
-        @Column(name = "ConsumerFirstName", nullable = false, length = 50)
+        @Column(name = "FirstName", nullable = false, length = 50)
 	/** 
-	 Consumers First Name
+	 Employees First Name
 	*/
-	private String consumerFirstName;
+	private String employeeFirstName;
 
-        @Column(name = "ConsumerMiddleInitial", nullable = false, length = 50)
+        @Column(name = "MiddleInitial", nullable = false, length = 50)
 	/** 
-	 Consumers Middle Initial
+	 Employees Middle Initial
 	*/
-	private String consumerMiddleInitial;
+	private String employeeMiddleInitial;
 
-        @Column(name = "ConsumerLastName", nullable = false, length = 50)
+        @Column(name = "LastName", nullable = false, length = 50)
 	/** 
-	 Consumers Last Name
+	 Employees Last Name
 	*/
-	private String consumerLastName;
+	private String employeeLastName;
 
-        @Column(name = "ConsumerEmail", nullable = false, length = 50)
+        @Column(name = "DOB", nullable = false, length = 50)
 	/** 
-	 Consumer email address
+	 Employee email address
 	*/
-	private String consumerEmail;
+	private String dob;
 
-        @Column(name = "ConsumerPhone", nullable = false, length = 50)
+        @Column(name = "DOE", nullable = false, length = 50)
 	/** 
-	 Consumer phone
+	 Employee phone
 	*/
-	private String consumerPhone;
+	private String doe;
 
-        @Column(name = "ConsumerAddress", nullable = false, length = 50)
+        @Column(name = "Status", nullable = false, length = 50)
 	/** 
-	 Consumer Address1
+	 Employee Address1
 	*/
-	private String consumerAddress;
+	private String status;
 
-        @Column(name = "ConsumerCity", nullable = false, length = 50)
-	/** 
-	 Consumer City
-	*/
-	private String consumerCity;
-
-        @Column(name = "ConsumerState", nullable = false, length = 50)
-	/** 
-	 Consumer State
-	*/
-	private String consumerState;
-
-        @Column(name = "ConsumerZip", nullable = false, length = 50)
-	/** 
-	 Consumer Zip
-	*/
-	private String consumerZip;
-
-        @Column(name = "ConsumerSocEmail", nullable = false, length = 50)
-	/** 
-	 Consumer SocialEmail
-	*/
-	private String consumerSocEmail;
-
-        @Column(name = "DemoID")
-	/** 
-	 Demographic ID
-	*/
-	private int demoID;
-        
-        @Column(name = "DeviceLocID")
-	/** 
-	 Device Location ID
-	*/
-	private String deviceLocID;
-        
-        @Column(name = "ProviderID")
-	/** 
-	 Provider ID
-	*/
-	private int providerID;
-
-        @Column(name = "ConsumerPWD")
-        /**
-         * Consumer Password
-         */        
-	String consumerPWD;
-        
-	/** 
-	  Default Constructor
-	  @param consumer object
-	*/
-	public employee()
-	{
-
-	}
- 
-        /*
-        Overloaded Constructor
-        *
-        */
-        public employee(int consumerID, String consumerFirstName, String consumerMiddleInitial, String consumerLastName, String consumerEmail, String consumerPhone, String consumerAddress, String consumerCity, String consumerState, String consumerZip, String consumerSocEmail, int demoID, String deviceLocID, int providerID, String consumerPWD) {
-            this.consumerID = consumerID;
-            this.consumerFirstName = consumerFirstName;
-            this.consumerMiddleInitial = consumerMiddleInitial;
-            this.consumerLastName = consumerLastName;
-            this.consumerEmail = consumerEmail;
-            this.consumerPhone = consumerPhone;
-            this.consumerAddress = consumerAddress;
-            this.consumerCity = consumerCity;
-            this.consumerState = consumerState;
-            this.consumerZip = consumerZip;
-            this.consumerSocEmail = consumerSocEmail;
-            this.demoID = demoID;
-            this.deviceLocID = deviceLocID;
-            this.providerID = providerID;
-            this.consumerPWD = consumerPWD;
-        }
-
-    public int getConsumerID() {
-        return consumerID;
+    public employee() {
     }
 
-    public void setConsumerID(int consumerID) {
-        this.consumerID = consumerID;
+    public employee(int employeeID, String employeeFirstName, String employeeMiddleInitial, String employeeLastName, String dob, String doe, String status) {
+        this.employeeID = employeeID;
+        this.employeeFirstName = employeeFirstName;
+        this.employeeMiddleInitial = employeeMiddleInitial;
+        this.employeeLastName = employeeLastName;
+        this.dob = dob;
+        this.doe = doe;
+        this.status = status;
     }
 
-    public String getConsumerFirstName() {
-        return consumerFirstName;
+    public employee(String employeeFirstName, String employeeMiddleInitial, String employeeLastName, String dob, String doe, String status) {
+        this.employeeFirstName = employeeFirstName;
+        this.employeeMiddleInitial = employeeMiddleInitial;
+        this.employeeLastName = employeeLastName;
+        this.dob = dob;
+        this.doe = doe;
+        this.status = status;
     }
 
-    public void setConsumerFirstName(String consumerFirstName) {
-        this.consumerFirstName = consumerFirstName;
+    
+    
+    
+    public int getEmployeeID() {
+        return employeeID;
     }
 
-    public String getConsumerMiddleInitial() {
-        return consumerMiddleInitial;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 
-    public void setConsumerMiddleInitial(String consumerMiddleInitial) {
-        this.consumerMiddleInitial = consumerMiddleInitial;
+    public String getEmployeeFirstName() {
+        return employeeFirstName;
     }
 
-    public String getConsumerLastName() {
-        return consumerLastName;
+    public void setEmployeeFirstName(String employeeFirstName) {
+        this.employeeFirstName = employeeFirstName;
     }
 
-    public void setConsumerLastName(String consumerLastName) {
-        this.consumerLastName = consumerLastName;
+    public String getEmployeeMiddleInitial() {
+        return employeeMiddleInitial;
     }
 
-    public String getConsumerEmail() {
-        return consumerEmail;
+    public void setEmployeeMiddleInitial(String employeeMiddleInitial) {
+        this.employeeMiddleInitial = employeeMiddleInitial;
     }
 
-    public void setConsumerEmail(String consumerEmail) {
-        this.consumerEmail = consumerEmail;
+    public String getEmployeeLastName() {
+        return employeeLastName;
     }
 
-    public String getConsumerPhone() {
-        return consumerPhone;
+    public void setEmployeeLastName(String employeeLastName) {
+        this.employeeLastName = employeeLastName;
     }
 
-    public void setConsumerPhone(String consumerPhone) {
-        this.consumerPhone = consumerPhone;
+    public String getDob() {
+        return dob;
     }
 
-    public String getConsumerAddress() {
-        return consumerAddress;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
-    public void setConsumerAddress(String consumerAddress) {
-        this.consumerAddress = consumerAddress;
+    public String getDoe() {
+        return doe;
     }
 
-    public String getConsumerCity() {
-        return consumerCity;
+    public void setDoe(String doe) {
+        this.doe = doe;
     }
 
-    public void setConsumerCity(String consumerCity) {
-        this.consumerCity = consumerCity;
+    public String getStatus() {
+        return status;
     }
 
-    public String getConsumerState() {
-        return consumerState;
-    }
-
-    public void setConsumerState(String consumerState) {
-        this.consumerState = consumerState;
-    }
-
-    public String getConsumerZip() {
-        return consumerZip;
-    }
-
-    public void setConsumerZip(String consumerZip) {
-        this.consumerZip = consumerZip;
-    }
-
-    public String getConsumerSocEmail() {
-        return consumerSocEmail;
-    }
-
-    public void setConsumerSocEmail(String consumerSocEmail) {
-        this.consumerSocEmail = consumerSocEmail;
-    }
-
-    public int getDemoID() {
-        return demoID;
-    }
-
-    public void setDemoID(int demoID) {
-        this.demoID = demoID;
-    }
-
-    public String getDeviceLocID() {
-        return deviceLocID;
-    }
-
-    public void setDeviceLocID(String deviceLocID) {
-        this.deviceLocID = deviceLocID;
-    }
-
-    public int getProviderID() {
-        return providerID;
-    }
-
-    public void setProviderID(int providerID) {
-        this.providerID = providerID;
-    }
-
-    public String getConsumerPWD() {
-        return consumerPWD;
-    }
-
-    public void setConsumerPWD(String consumerPWD) {
-        this.consumerPWD = consumerPWD;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + this.consumerID;
-        hash = 97 * hash + Objects.hashCode(this.consumerFirstName);
-        hash = 97 * hash + Objects.hashCode(this.consumerMiddleInitial);
-        hash = 97 * hash + Objects.hashCode(this.consumerLastName);
-        hash = 97 * hash + Objects.hashCode(this.consumerEmail);
-        hash = 97 * hash + Objects.hashCode(this.consumerPhone);
-        hash = 97 * hash + Objects.hashCode(this.consumerAddress);
-        hash = 97 * hash + Objects.hashCode(this.consumerCity);
-        hash = 97 * hash + Objects.hashCode(this.consumerState);
-        hash = 97 * hash + Objects.hashCode(this.consumerZip);
-        hash = 97 * hash + Objects.hashCode(this.consumerSocEmail);
-        hash = 97 * hash + this.demoID;
-        hash = 97 * hash + Objects.hashCode(this.deviceLocID);
-        hash = 97 * hash + this.providerID;
-        hash = 97 * hash + Objects.hashCode(this.consumerPWD);
+        hash = 67 * hash + this.employeeID;
+        hash = 67 * hash + Objects.hashCode(this.employeeFirstName);
+        hash = 67 * hash + Objects.hashCode(this.employeeMiddleInitial);
+        hash = 67 * hash + Objects.hashCode(this.employeeLastName);
+        hash = 67 * hash + Objects.hashCode(this.dob);
+        hash = 67 * hash + Objects.hashCode(this.doe);
+        hash = 67 * hash + Objects.hashCode(this.status);
         return hash;
     }
 
@@ -302,49 +176,25 @@ public class employee implements Serializable
             return false;
         }
         final employee other = (employee) obj;
-        if (this.consumerID != other.consumerID) {
+        if (this.employeeID != other.employeeID) {
             return false;
         }
-        if (this.demoID != other.demoID) {
+        if (!Objects.equals(this.employeeFirstName, other.employeeFirstName)) {
             return false;
         }
-        if (this.providerID != other.providerID) {
+        if (!Objects.equals(this.employeeMiddleInitial, other.employeeMiddleInitial)) {
             return false;
         }
-        if (!Objects.equals(this.consumerFirstName, other.consumerFirstName)) {
+        if (!Objects.equals(this.employeeLastName, other.employeeLastName)) {
             return false;
         }
-        if (!Objects.equals(this.consumerMiddleInitial, other.consumerMiddleInitial)) {
+        if (!Objects.equals(this.dob, other.dob)) {
             return false;
         }
-        if (!Objects.equals(this.consumerLastName, other.consumerLastName)) {
+        if (!Objects.equals(this.doe, other.doe)) {
             return false;
         }
-        if (!Objects.equals(this.consumerEmail, other.consumerEmail)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerPhone, other.consumerPhone)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerAddress, other.consumerAddress)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerCity, other.consumerCity)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerState, other.consumerState)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerZip, other.consumerZip)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerSocEmail, other.consumerSocEmail)) {
-            return false;
-        }
-        if (!Objects.equals(this.deviceLocID, other.deviceLocID)) {
-            return false;
-        }
-        if (!Objects.equals(this.consumerPWD, other.consumerPWD)) {
+        if (!Objects.equals(this.status, other.status)) {
             return false;
         }
         return true;
@@ -352,18 +202,8 @@ public class employee implements Serializable
 
     @Override
     public String toString() {
-        return "consumer{" + "consumerID=" + consumerID + ", consumerFirstName=" + consumerFirstName + ", consumerMiddleInitial=" + consumerMiddleInitial + ", consumerLastName=" + consumerLastName + ", consumerEmail=" + consumerEmail + ", consumerPhone=" + consumerPhone + ", consumerAddress=" + consumerAddress + ", consumerCity=" + consumerCity + ", consumerState=" + consumerState + ", consumerZip=" + consumerZip + ", consumerSocEmail=" + consumerSocEmail + ", demoID=" + demoID + ", deviceLocID=" + deviceLocID + ", providerID=" + providerID + ", consumerPWD=" + consumerPWD + '}';
+        return "employee{" + "employeeID=" + employeeID + ", employeeFirstName=" + employeeFirstName + ", employeeMiddleInitial=" + employeeMiddleInitial + ", employeeLastName=" + employeeLastName + ", dob=" + dob + ", doe=" + doe + ", status=" + status + '}';
     }
-
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); //To change body of generated methods, choose Tools | Templates.
-    }
-
         
 }
+

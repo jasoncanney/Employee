@@ -33,10 +33,9 @@ public class EmployeeSvcHibernateImplTest extends TestCase{
 		
 		super.setUp();
                 // Factory factory = Factory.getInstance();
-		employee1 = new employee (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password1");                
-                employee2 = new employee (86730, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password2");             
-                employee3 = new employee (86731, "1", "2", "3", "4", "5","6","7","8","9","10",1,"2",3, "password3");           
-
+		employee1 = new employee ("FirstName", "Middle", "Last","DOB","DOE","ACTIVE");
+                employee2 = new employee ("01", "02", "03","04","05","06");
+                employee3 = new employee ("01", "02", "03","04","05","06");
         }
         /*
 	 * Category set in config/log4j.properties as
